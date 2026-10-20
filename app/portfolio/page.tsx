@@ -54,7 +54,6 @@ export default function PortfolioPage() {
       setScrollProgress(progress)
       setShowTopBtn(window.scrollY > 400)
 
-      // Scroll diepte mijlpalen
       const milestones = [25, 50, 75, 100]
       milestones.forEach((milestone) => {
         if (progress >= milestone && !scrollMilestones.current.has(milestone)) {
@@ -99,6 +98,8 @@ export default function PortfolioPage() {
     window.scrollTo({ top: 0, behavior: "smooth" })
   }
 
+  // Voeg featured: true toe aan het project dat je uitgelicht wil — max 1 per keer
+  // De rest wordt automatisch alfabetisch gesorteerd in het grid
   const projects = [
     {
       title: "FOTOGRAFIE FOMU",
@@ -108,6 +109,7 @@ export default function PortfolioPage() {
       link: "/project_1",
       desc: "Een onderzoek naar de essentie van de architecturale lijn in opdracht van het Fotomuseum Antwerpen.",
       tag: "Expositie",
+      featured: true,
     },
     {
       title: "STAGE T-SHIRT WEGI",
@@ -117,6 +119,7 @@ export default function PortfolioPage() {
       link: "/project_2",
       desc: "Het vertalen van clubtrots naar een technisch en visueel sterk ontwerp voor volleybalclub WeGi.",
       tag: "Print",
+      featured: false,
     },
     {
       title: "IGNITION ENERGY DRINK",
@@ -126,6 +129,7 @@ export default function PortfolioPage() {
       link: "/project_3",
       desc: "Een integrale merkbeleving waarbij kracht, snelheid en visuele energie de kern vormen.",
       tag: "Brand Identity",
+      featured: false,
     },
     {
       title: "TEGEN DEMENTIE",
@@ -135,13 +139,55 @@ export default function PortfolioPage() {
       link: "/project_4",
       desc: "Een visuele identiteit die de complexiteit van dementie vertaalt naar een heldere, menselijke en verbindende beeldtaal.",
       tag: "Awareness",
+      featured: false,
+    },
+    {
+      title: "CINECITY",
+      category: "GRAPHIC DESIGN",
+      year: "2026",
+      image: "/IMG/affiche-31.png",
+      link: "/project_5",
+      desc: "Een volledige visuele identiteit voor het fictieve CineCity Filmfestival Antwerpen — van affichereeks en booklet tot locatiekaartjes en digitale tools.",
+      tag: "Print Design",
+      featured: false,
+    },
+    {
+      title: "DATAVISUALISATIE",
+      category: "GRAPHIC DESIGN",
+      year: "2025",
+      image: "/IMG/datavisualisatie.jpg",
+      link: "/project_6",
+      desc: "Een infographic die het wasproces stap voor stap visualiseert — ontworpen als praktische handleiding voor studenten op kot.",
+      tag: "Infographic",
+      featured: false,
+    },
+    {
+      title: "PAWTNER",
+      category: "BRANDING",
+      year: "2025",
+      image: "/IMG/podcast.jpg",
+      link: "/project_7",
+      desc: "Een submerk voor Jack Wolfskin dat baas en hond samen naar buiten brengt — van merkstrategie tot visuele identiteit.",
+      tag: "Brand Identity",
+      featured: false,
     },
   ]
 
   const categories = ["ALL", "PHOTOGRAPHY", "GRAPHIC DESIGN", "BRANDING"]
-  const filteredProjects = activeFilter === "ALL"
-    ? projects
-    : projects.filter(p => p.category === activeFilter)
+
+  const getFilteredProjects = (cat: string) => {
+    const filtered = cat === "ALL" ? projects : projects.filter(p => p.category === cat)
+    const sorted = [...filtered].sort((a, b) => a.title.localeCompare(b.title))
+    // Featured project bovenaan, rest alfabetisch
+    const featuredIndex = sorted.findIndex(p => p.featured)
+    if (featuredIndex > 0) {
+      const [featured] = sorted.splice(featuredIndex, 1)
+      sorted.unshift(featured)
+    }
+    return sorted
+  }
+
+  const filteredProjects = getFilteredProjects(activeFilter)
   const getCount = (cat: string) =>
     cat === "ALL" ? projects.length : projects.filter(p => p.category === cat).length
 

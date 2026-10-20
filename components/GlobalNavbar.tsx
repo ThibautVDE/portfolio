@@ -12,6 +12,9 @@ const rawProjects = [
   { t: "Ignition", h: "/project_3" },
   { t: "Stage T-shirt", h: "/project_2" },
   { t: "Tegen Dementie", h: "/project_4" },
+  { t: "CineCity", h: "/project_5" },
+  { t: "Datavisualisatie", h: "/project_6" },
+  { t: "Pawtner", h: "/project_7" },
 ]
 
 const gaEvent = ({ action, category, label }: { action: string; category: string; label: string }) => {
