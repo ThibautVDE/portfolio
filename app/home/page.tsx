@@ -15,7 +15,7 @@ interface Project {
 const allProjects: Project[] = [
   { title: "FOTOGRAFIE", image: "/IMG/Fotografie_Leporello.jpg", link: "/project_1", tag: "Visual Arts" },
   { title: "STAGE T-SHIRT", image: "/IMG/T-shirt_Stage.jpg", link: "/project_2", tag: "Branding" },
-  { title: "IGNITION", image: "/IMG/Ignition3.jpg", link: "/project_3", tag: "Digital Design" },
+  { title: "LUMA", image: "/IMG-2/LUMA_zwart.png", link: "/project_8", tag: "Systeem Design" },
 ]
 
 const gaEvent = ({ action, category, label }: { action: string; category: string; label: string }) => {
@@ -146,7 +146,7 @@ export default function HomePage() {
             <span className="block font-barlow text-[clamp(2.5rem,10vw,10rem)] font-light tracking-wide uppercase text-gray-900">
               Thibaut
             </span>
-            <span className="block text-red-900 text-[clamp(2rem,8vw,10rem)] font-bold tracking-tight min-h-[1.1em] break-words">
+            <span className="block text-red-900 text-[clamp(2rem,8vw,10rem)] font-bold tracking-tight min-h-[1.1em] wrap-break-word">
               {lastName}
               <span className="ml-1 opacity-40 animate-pulse"></span>
             </span>
@@ -190,7 +190,7 @@ export default function HomePage() {
               className="group relative inline-flex items-center gap-4 sm:gap-6 w-full"
             >
               <div className="relative min-w-0">
-                <h2 className="text-2xl sm:text-4xl md:text-6xl font-black text-gray-900 uppercase tracking-tighter leading-none transition-colors group-hover:text-red-900 break-words">
+                <h2 className="text-2xl sm:text-4xl md:text-6xl font-black text-gray-900 uppercase tracking-tighter leading-none transition-colors group-hover:text-red-900 wrap-break-word">
                   Mijn projecten
                 </h2>
                 <span className="absolute -bottom-2 left-0 w-full h-1 sm:h-1.5 bg-red-900 origin-left scale-x-[0.3] transition-transform duration-500 ease-out group-hover:scale-x-100" />

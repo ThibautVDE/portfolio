@@ -119,7 +119,7 @@ export default function PortfolioPage() {
       link: "/project_2",
       desc: "Het vertalen van clubtrots naar een technisch en visueel sterk ontwerp voor volleybalclub WeGi.",
       tag: "Print",
-      featured: false,
+      featured: true,
     },
     {
       title: "IGNITION ENERGY DRINK",
@@ -170,6 +170,16 @@ export default function PortfolioPage() {
       desc: "Een submerk voor Jack Wolfskin dat baas en hond samen naar buiten brengt — van merkstrategie tot visuele identiteit.",
       tag: "Brand Identity",
       featured: false,
+    },
+    {
+      title: "LUMA",
+      category: "GRAPHIC DESIGN",
+      year: "2026",
+      image: "/IMG-2/LUMA_zwart.png",
+      link: "/project_8",
+      desc: "Een offline communicatiesysteem voor Enschede in 2035 — van 3D-geprinte capsules tot visuele identiteit.",
+      tag: "Systeem Design",
+      featured: true,
     },
   ]
 
