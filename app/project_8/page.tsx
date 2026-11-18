@@ -463,13 +463,11 @@ export default function LumaProject() {
             <p className="text-[10px] font-black tracking-[0.35em] uppercase text-red-900 mb-1">02 — Conceptvideo</p>
             <p className="text-gray-400 font-light text-sm mb-5">AI-gegenereerde beelden tonen LUMA in gebruik in Enschede 2035.</p>
             <div className="relative rounded-3xl overflow-hidden shadow-xl bg-gray-900" style={{ aspectRatio: "16/9" }}>
-              <video
-                src="/IMG-2/LUMA_movie.mp4"
-                className="absolute inset-0 w-full h-full object-cover"
-                controls
-                poster="/IMG-2/LUMA_zwart.png"
-                onPlay={() => gaEvent({ action: "video_play", category: "luma", label: "conceptvideo gestart" })}
-                onEnded={() => gaEvent({ action: "video_ended", category: "luma", label: "conceptvideo volledig bekeken" })}
+              <iframe
+                src="https://www.youtube.com/embed/EdgNSWVO6Vc"
+                className="absolute inset-0 w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
               />
             </div>
           </div>
